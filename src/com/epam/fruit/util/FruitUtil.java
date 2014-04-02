@@ -2,8 +2,11 @@ package com.epam.fruit.util;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import com.epam.fruit.Apple;
@@ -31,11 +34,13 @@ public class FruitUtil {
 		//copyAll(fr, or);
 		//copyAll(or, app);
 		*/
+		/*
 		Apple ap = new Apple(70, 9);
 		RedApple rap = new RedApple(99, 25);
 		Orange or = new Orange(110);
 		Melon me = new Melon(500);
-		
+		*/
+		/*
 		Apple ap1 = new Apple(70, 10);
 		Apple ap2 = new Apple(80, 10);
 		Apple ap3 = new Apple(90, 10);
@@ -49,24 +54,43 @@ public class FruitUtil {
 		} catch (InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
-		//System.out.println(ap.compareTo(rap));
+		*/
+		/*
+		Apple ap1 = new Apple(70, 10);
+		Apple ap2 = new Apple(80, 10);
+		Apple ap3 = new Apple(90, 10);
+		Apple ap4 = new Apple(70, 8);
+		Apple ap5 = new Apple(69, 11);
+		RedApple rap1 = new RedApple(70, 10);
+		RedApple rap2 = new RedApple(80, 9);
+		Orange or1 = new Orange(70);
+		Melon me1 = new Melon(2000);
+		System.out.println(ap1.compareTo(ap2)); // -10
+		System.out.println(ap2.compareTo(ap3)); // -10
+		System.out.println(ap1.compareTo(ap4)); // 2
+		System.out.println(ap1.compareTo(ap5)); // 1
+		System.out.println(ap4.compareTo(ap5)); // 1
+		
+		System.out.println(ap1.compareTo(rap1)); // 0
+		System.out.println(ap2.compareTo(rap2)); // 1
+		
+		//System.out.println(or1.compareTo(ap1));
+		//System.out.println(ap1.compareTo(or1));
+		//System.out.println(ap1.compareTo(me));
+		*/
+		
 	}
 	
 	public static <T extends Comparable<T>> Collection<T> getBiggerThan(Collection<T> in, T comparative) throws InstantiationException, IllegalAccessException {
-		
-		Collection<T> rez = (Collection<T>) in.getClass().newInstance();
-		
-		System.out.println(rez.getClass().getGenericSuperclass());
-		
+		Collection<T> rez = in.getClass().newInstance();
 		for (T elem : in) {
 			if (elem.compareTo(comparative) > 0) {
 				rez.add(elem);
 			}
 		}
 		return rez;
-		
 	}
-
+	
 	public static <T> void copyAll(Collection<? extends T> in, Collection<T> out) {
 		if (in == null) {
 			throw new IllegalArgumentException("Invalide source argument: " + in);
