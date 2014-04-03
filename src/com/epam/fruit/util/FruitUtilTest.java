@@ -18,7 +18,7 @@ public class FruitUtilTest {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void test() {
+	public void testCopyAllCompilation() {
 		FruitUtil futil = new FruitUtil();
 		List<Fruit> fru = null;
 		List<Apple> app = null;
@@ -35,7 +35,7 @@ public class FruitUtilTest {
 	}
 	
 	@Test
-	public void test2() {
+	public void testGetNewCollectionWithElementsBiggerThanSpecified() {
 		
 		Apple ap1 = new Apple(70, 10);
 		Apple ap2 = new Apple(80, 10);
@@ -57,68 +57,45 @@ public class FruitUtilTest {
 	}
 	
 	@Test
-	public void test3() {
+	public void testFirstAppleLighterThanSecond_SecondBigger() {
 		
-		Apple ap1 = new Apple(70, 10);
 		Apple ap2 = new Apple(80, 10);
 		Apple ap3 = new Apple(90, 10);
-		Apple ap4 = new Apple(70, 8);
-		Apple ap5 = new Apple(69, 11);
-		RedApple rap1 = new RedApple(70, 10);
-		RedApple rap2 = new RedApple(80, 9);
-		Orange or1 = new Orange(70);
-		Melon me1 = new Melon(2000);
-		System.out.println(ap1.compareTo(ap2)); // -10
-		System.out.println(ap2.compareTo(ap3)); // -10
-		System.out.println(ap1.compareTo(ap4)); // 2
-		System.out.println(ap1.compareTo(ap5)); // 1
-		System.out.println(ap4.compareTo(ap5)); // 1
-		
-		System.out.println(ap1.compareTo(rap1)); // 0
-		System.out.println(ap2.compareTo(rap2)); // 1
+		assertEquals(-1, ap2.compareTo(ap3));
 	}
 	
 	@Test
-	public void test9() {
-		Apple ap2 = new Apple(80, 10);
-		RedApple rap2 = new RedApple(80, 9);
-		assertEquals(1, ap2.compareTo(rap2));
-	}
-	
-	@Test
-	public void test8() {
+	public void testFirstAppleWiderThanSecond_FirstBigger() {
 		Apple ap1 = new Apple(70, 10);
-		RedApple rap1 = new RedApple(70, 10);
-		assertEquals(0, ap1.compareTo(rap1));
-	}
-	
-	@Test
-	public void test7() {
 		Apple ap4 = new Apple(70, 8);
-		Apple ap5 = new Apple(69, 11);
-		assertEquals(1, ap4.compareTo(ap5));
+		assertEquals(1, ap1.compareTo(ap4));
 	}
 	
 	@Test
-	public void test6() {
+	public void testFirstAppleHeavierThanSecondAndSecondWider_FirstBigger() {
 		Apple ap1 = new Apple(70, 10);
 		Apple ap5 = new Apple(69, 11);
 		assertEquals(1, ap1.compareTo(ap5));
 	}
 	
 	@Test
-	public void test5() {
-		Apple ap1 = new Apple(70, 10);
-		Apple ap4 = new Apple(70, 8);
-		assertEquals(2, ap1.compareTo(ap4));
+	public void testFirstAppleLighterThanSecondAndSecondWider_SecondBigger() {
+		Apple ap4 = new Apple(69, 10);
+		Apple ap5 = new Apple(70, 11);
+		assertEquals(-1, ap4.compareTo(ap5));
 	}
 	
 	@Test
-	public void test4() {
-		
-		Apple ap2 = new Apple(80, 10);
-		Apple ap3 = new Apple(90, 10);
-		assertEquals(-10, ap2.compareTo(ap3));
+	public void testRedAndRegularApllesWithSameParametres_Equals() {
+		Apple ap1 = new Apple(70, 10);
+		RedApple rap1 = new RedApple(70, 10);
+		assertEquals(0, ap1.compareTo(rap1));
 	}
-
+	
+	@Test
+	public void testFirstAppleWiderThanSecondRedApple_FirstBigger() {
+		Apple ap2 = new Apple(80, 10);
+		RedApple rap2 = new RedApple(80, 9);
+		assertEquals(1, ap2.compareTo(rap2));
+	}
 }

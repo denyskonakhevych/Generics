@@ -16,15 +16,15 @@ public class Apple<E extends Apple<E>> extends Fruit implements Comparable<E>/* 
 		}
 		int weightDifference = weight - a.weight;
 		if (weightDifference != 0) {
-			return weightDifference;
+			return weightDifference < 0 ? -1 : 1;
 		}
-		return radius - a.radius;
+		int radiusDifference = radius - a.radius;
+		return radiusDifference == 0 ? 0 : radiusDifference < 0 ? -1 : 1;
 	}
 
 	@Override
 	public String toString() {
 		return "Apple {weight=" + weight + "; radius=" + radius +"}";
 	}
-	
 	
 }
