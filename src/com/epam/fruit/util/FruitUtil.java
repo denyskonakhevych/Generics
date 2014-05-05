@@ -1,11 +1,12 @@
 package com.epam.fruit.util;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class FruitUtil {
 	
 	public static <T extends Comparable<T>> Collection<T> getBiggerThan(Collection<T> in, T comparative) throws InstantiationException, IllegalAccessException {
-		Collection<T> rez = in.getClass().newInstance(); // TODO: is it correct?
+		Collection<T> rez = new ArrayList<T>();
 		for (T elem : in) {
 			if (elem.compareTo(comparative) > 0) {
 				rez.add(elem);

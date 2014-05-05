@@ -1,8 +1,8 @@
 package com.epam.fruit;
 
-public class Apple<E extends Apple<E>> extends Fruit implements Comparable<E>/* implements Comparable<Apple>*/ {
+public class Apple<E extends Apple<E>> extends Fruit implements Comparable<E> {
 
-	private int radius;
+	protected int radius;
 	
 	public Apple(int weight, int radius) {
 		super(weight);
@@ -10,7 +10,7 @@ public class Apple<E extends Apple<E>> extends Fruit implements Comparable<E>/* 
 	}
 
 	@Override
-	public int compareTo(Apple a) {
+	public int compareTo(E a) {
 		if (a == null) {
 			throw new IllegalArgumentException("Wrong parameter: " + a);
 		}

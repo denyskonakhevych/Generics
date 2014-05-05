@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.experimental.categories.Categories.ExcludeCategory;
 
 import com.epam.fruit.*;
 
@@ -19,7 +18,7 @@ public class FruitUtilTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testCopyAllCompilation() {
-		FruitUtil futil = new FruitUtil();
+		
 		List<Fruit> fru = null;
 		List<Apple> app = null;
 		List<Orange> orn = null;

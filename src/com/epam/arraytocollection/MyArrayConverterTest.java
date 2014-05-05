@@ -9,7 +9,6 @@ import java.util.LinkedList;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.junit.Before;
 import org.junit.Test;
 
 public class MyArrayConverterTest {
@@ -19,7 +18,7 @@ public class MyArrayConverterTest {
 		String[] array = {"a", "b", "c"};
 		Collection<String> collection = new ArrayList<>();
 		MyArrayConverter.fromArrayToCollection(array, collection);
-		assertEquals(array, collection.toArray());
+		assertArrayEquals(array, collection.toArray());
 	}
 	
 	@Test
@@ -27,7 +26,7 @@ public class MyArrayConverterTest {
 		String[] array = {"a", "b", "c"};
 		Collection<String> collection = new LinkedList<>();
 		MyArrayConverter.fromArrayToCollection(array, collection);
-		assertEquals(array, collection.toArray());
+		assertArrayEquals(array, collection.toArray());
 	}
 	
 	@Test
@@ -35,7 +34,7 @@ public class MyArrayConverterTest {
 		Integer[] array = {1, 2, 3};
 		Collection<Integer> collection = new ArrayList<>();
 		MyArrayConverter.fromArrayToCollection(array, collection);
-		assertEquals(array, collection.toArray());
+		assertArrayEquals(array, collection.toArray());
 	}
 	
 	@Test
@@ -43,7 +42,7 @@ public class MyArrayConverterTest {
 		Integer[] array = {1, 2, 3};
 		Collection<Integer> collection = new LinkedList<>();
 		MyArrayConverter.fromArrayToCollection(array, collection);
-		assertEquals(array, collection.toArray());
+		assertArrayEquals(array, collection.toArray());
 	}
 	
 	@Test
@@ -51,7 +50,7 @@ public class MyArrayConverterTest {
 		Integer[] array = {1, 2, 3};
 		Set<Integer> collection = new HashSet<>();
 		MyArrayConverter.fromArrayToCollection(array, collection);
-		assertEquals(array, collection.toArray());
+		assertArrayEquals(array, collection.toArray());
 	}
 	
 	@Test
@@ -59,6 +58,6 @@ public class MyArrayConverterTest {
 		Integer[] array = {1, 2, 3};
 		TreeSet<Integer> collection = new TreeSet<>();
 		MyArrayConverter.fromArrayToCollection(array, collection);
-		assertEquals(array, collection.toArray());
+		assertArrayEquals(array, collection.toArray());
 	}
 }
